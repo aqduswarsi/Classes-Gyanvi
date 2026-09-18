@@ -1,0 +1,52 @@
+
+/* Types of selectors in CSS include: */
+/* 1. Element selectors */
+/* 2. Class selectors */
+/* 3. ID selectors */
+/* 4. Universal selector */
+/* 5. Grouping selectors */
+
+/* 1. Element selectors */
+/* h1{
+    color: pink
+} */
+
+/* 2. Class selectors */
+/* .heading{   
+    color: blue;
+    font-size: 20px;
+    text-align: center;
+} */
+
+/* 3. ID selectors */
+ /* #html-heading{
+    color: rgb(97, 38, 234);
+    font-size: 30px;        
+} 
+#css-heading{
+    color: red;
+    font-size: 30px;        
+}
+#js-heading{
+    color: burlywood;
+    font-size: 30px;        
+} */
+
+/* 4. Universal selector */
+/* *{
+    color: rgb(14, 255, 14);
+} */
+
+/* 5. Grouping selectors */
+/* h1, p{
+    color: rgb(255, 0, 0);
+} */
+
+/* comments in css */
+
+/* css syntax */    
+
+/* selector {
+    property: value;
+} */
+

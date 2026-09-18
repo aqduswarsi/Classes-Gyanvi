@@ -1,0 +1,235 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f5f7;
+    color: #222;
+    padding: 20px;
+  }
+
+  h1, h2 {
+    margin: 30px 0 10px;
+  }
+
+  p.note {
+    background: #fff8dc;
+    border-left: 4px solid #f0c419;
+    padding: 8px 12px;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+
+  code {
+    background: #eee;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 13px;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 500px;
+  }
+  table th, table td {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    text-align: left;
+    font-size: 14px;
+  }
+  table th {
+    background: #dfe4ea;
+  }
+
+
+  /* ======================================================
+     SECTION 1: Media Queries — Syntax & Breakpoints
+     ------------------------------------------------------
+     DEFINITION:
+     A media query applies CSS rules only when a condition
+     (like screen width) is true. Syntax:
+        @media (condition) { ...css rules... }
+  ====================================================== */
+
+  .demo1-box {
+    background: #4b7bec;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+
+  /* Default (desktop) style */
+  .demo1-box {
+    font-size: 22px;
+  }
+
+  /* Tablet and below: max-width 768px */
+  @media (max-width: 768px) {
+    .demo1-box {
+      background: #f0932b;
+      font-size: 18px;
+    }
+    .demo1-box::after {
+      content: " (Tablet view: width <= 768px)";
+    }
+  }
+
+  /* Mobile: max-width 480px */
+  @media (max-width: 480px) {
+    .demo1-box {
+      background: #eb4d4b;
+      font-size: 14px;
+    }
+    .demo1-box::after {
+      content: " (Mobile view: width <= 480px)";
+    }
+  }
+
+
+  /* ======================================================
+     SECTION 2: Mobile-First vs Desktop-First
+     ------------------------------------------------------
+     DEFINITION:
+     - Desktop-first = write CSS for large screens first,
+       then use max-width media queries to override for
+       smaller screens.
+     - Mobile-first = write CSS for small screens first
+       (as the default/base), then use min-width media
+       queries to enhance for larger screens.
+
+     Mobile-first is the modern/recommended approach because
+     most traffic is mobile, and base CSS stays lightweight.
+  ====================================================== */
+
+  /* MOBILE-FIRST EXAMPLE BELOW */
+  .demo2 {
+    display: flex;
+    flex-direction: column;   /* default: mobile = stacked */
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  .demo2 > div {
+    background: #20bf6b;
+    color: white;
+    padding: 20px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  /* Enhance for tablet and up */
+  @media (min-width: 768px) {
+    .demo2 {
+      flex-direction: row;   /* side-by-side from tablet width onwards */
+    }
+  }
+
+  /* Enhance further for desktop */
+  @media (min-width: 1024px) {
+    .demo2 > div {
+      font-size: 20px;
+      padding: 30px;
+    }
+  }
+
+
+  /* ======================================================
+     SECTION 3: max-width, min-width strategies
+     ------------------------------------------------------
+     DEFINITION:
+     - max-width = ceiling. Element will never get wider
+       than this value, but can shrink smaller.
+     - min-width = floor. Element will never get narrower
+       than this value, but can grow bigger.
+  ====================================================== */
+
+  .demo3-container {
+    width: 100%;
+    max-width: 600px;     /* never wider than 600px */
+    margin: 0 auto 15px;  /* centers it on the page */
+    background: #a29bfe;
+    padding: 15px;
+    border-radius: 6px;
+    color: white;
+    text-align: center;
+  }
+
+  .demo3-sidebar {
+    min-width: 150px;     /* never narrower than 150px */
+    display: inline-block;
+    background: #6c5ce7;
+    color: white;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 40px;
+  }
+
+
+  /* ======================================================
+     SECTION 4: Responsive units & clamp(), min(), max()
+     ------------------------------------------------------
+     DEFINITION:
+     - clamp(MIN, PREFERRED, MAX): value scales fluidly
+       between MIN and MAX based on PREFERRED (often vw).
+     - min(a, b): browser picks whichever is SMALLER.
+     - max(a, b): browser picks whichever is LARGER.
+
+     Units cheat sheet:
+     % = relative to parent
+     vw / vh = % of viewport width / height
+     rem = relative to root font-size (scalable, accessible)
+     em = relative to parent font-size
+  ====================================================== */
+
+  .demo4-heading {
+    /* Resize your browser window to see this text scale fluidly */
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
+    background: #2f3542;
+    color: white;
+    padding: 15px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .demo4-box {
+    width: min(90%, 500px);   /* whichever is SMALLER wins */
+    padding: max(1rem, 3vw);  /* whichever is LARGER wins */
+    background: #ff7675;
+    color: white;
+    margin: 0 auto 40px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+
+  /* ======================================================
+     SECTION 5: Testing on DevTools Device Toolbar
+     ------------------------------------------------------
+     No CSS needed here — this is a workflow demo.
+     Steps written in the page below for the class.
+  ====================================================== */
+
+  .steps {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    margin-bottom: 40px;
+  }
+
+  .steps ol {
+    margin-left: 20px;
+    font-size: 15px;
+    line-height: 1.8;
+  }

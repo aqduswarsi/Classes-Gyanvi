@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Day 18 — Responsive Design Demo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Day 18 — Responsive Design</h1>
+
+  <!-- SECTION 1 -->
+  <h2>1. Media Queries — Syntax & Breakpoints</h2>
+  <p class="note">
+    <strong>Definition:</strong> A media query lets you apply CSS conditionally, based on
+    things like screen width. Syntax: <code>@media (max-width: 768px) { ...rules... }</code>
+  </p>
+  <table>
+    <tr><th>Device</th><th>Width Range</th></tr>
+    <tr><td>Mobile</td><td>up to 480px</td></tr>
+    <tr><td>Tablet</td><td>481px – 768px</td></tr>
+    <tr><td>Small Laptop</td><td>769px – 1024px</td></tr>
+    <tr><td>Desktop</td><td>1025px and above</td></tr>
+  </table>
+  <div class="demo1-box">Resize the browser window to see this box change color & text!</div>
+
+  <!-- SECTION 2 -->
+  <h2>2. Mobile-First vs Desktop-First</h2>
+  <p class="note">
+    <strong>Definition:</strong> Mobile-first = base CSS is written for small screens, then
+    <code>min-width</code> queries ADD styles for bigger screens. Desktop-first = base CSS is
+    for big screens, then <code>max-width</code> queries OVERRIDE for smaller screens.
+    Mobile-first is the modern recommended approach.
+  </p>
+  <div class="demo2">
+    <div>Box 1</div>
+    <div>Box 2</div>
+    <div>Box 3</div>
+  </div>
+  <p class="note">
+    Above: stacked (column) on mobile by default, becomes a row from 768px width onward
+    (<code>@media (min-width: 768px)</code>).
+  </p>
+
+  <!-- SECTION 3 -->
+  <h2>3. max-width, min-width Strategies</h2>
+  <p class="note">
+    <strong>Definition:</strong> <code>max-width</code> = upper limit (element won't grow past it).
+    <code>min-width</code> = lower limit (element won't shrink below it).
+  </p>
+  <div class="demo3-container">
+    This container has <code>max-width: 600px</code> — try resizing the window wider,
+    it will stop growing at 600px and stay centered.
+  </div>
+  <div class="demo3-sidebar">
+    min-width: 150px sidebar
+  </div>
+
+  <!-- SECTION 4 -->
+  <h2>4. Responsive Units & clamp(), min(), max()</h2>
+  <p class="note">
+    <strong>Definition:</strong> <code>clamp(min, preferred, max)</code> lets a value scale
+    fluidly between two limits. <code>min()</code> picks the smaller of two values,
+    <code>max()</code> picks the larger.
+  </p>
+  <div class="demo4-heading">clamp(1.2rem, 4vw, 2.5rem) — resize window to see me scale</div>
+  <div class="demo4-box">width: min(90%, 500px) | padding: max(1rem, 3vw)</div>
+
+  <!-- SECTION 5 -->
+  <h2>5. Testing on DevTools Device Toolbar</h2>
+  <div class="steps">
+    <ol>
+      <li>Open DevTools: press <code>F12</code> or <code>Ctrl+Shift+I</code></li>
+      <li>Toggle Device Toolbar: press <code>Ctrl+Shift+M</code></li>
+      <li>Select a device from the top dropdown (iPhone, iPad, etc.), or choose "Responsive" and drag manually</li>
+      <li>Test each breakpoint (480px, 768px, 1024px) and observe how the layout above changes</li>
+      <li>Use the throttling option in DevTools to simulate slow network conditions too</li>
+    </ol>
+  </div>
+
+</body>
+</html>

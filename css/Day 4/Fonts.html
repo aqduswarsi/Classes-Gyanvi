@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playwrite+NZ+Guides&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <title>CSS Typography Complete Example</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="main-heading">CSS Typography Complete Notes</h1>
+
+      <!-- Font Family -->
+      <section>
+        <h2>1. font-family</h2>
+
+        <div class="demo">
+          <p class="font1">Arial Font Example</p>
+
+          <p class="font2">Times New Roman Example</p>
+
+          <p class="font3">Courier New Example</p>
+        </div>
+      </section>
+
+      <!-- Web Safe Font -->
+      <section>
+        <h2>2. Web Safe Fonts</h2>
+
+        <div class="demo">
+          <p class="websafe">
+            Verdana → Geneva → Sans-serif Browser tries the first font. If
+            unavailable, it uses the next one.
+          </p>
+        </div>
+      </section>
+
+      <!-- Google Font -->
+      <section>
+        <h2>3. Google Font</h2>
+
+        <div class="demo">
+          <p class="google">This text uses Google Font (Babes Nueu).</p>
+        </div>
+      </section>
+
+      <!-- @font-face -->
+      <section>
+        <h2>4. @font-face</h2>
+
+        <div class="demo">
+          <p>Use when font file exists inside your project.</p>
+
+          <pre>
+@font-face{
+    font-family:MyFont;
+    src:url("fonts/MyFont.ttf");
+}
+</pre
+          >
+        </div>
+      </section>
+
+      <!-- Font Size -->
+      <section>
+        <h2>5. font-size</h2>
+
+        <div class="demo">
+          <p class="size-small">14px Small Text</p>
+
+          <p class="size-medium">24px Medium Text</p>
+
+          <p class="size-large">40px Large Text</p>
+        </div>
+      </section>
+
+      <!-- Font Weight -->
+      <section>
+        <h2>6. font-weight</h2>
+
+        <div class="demo">
+          <p class="light">300 Light</p>
+
+          <p class="normal">400 Normal</p>
+
+          <p class="bold">700 Bold</p>
+        </div>
+      </section>
+
+      <!-- Line Height -->
+      <section>
+        <h2>7. line-height</h2>
+
+        <div class="demo line">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+      </section>
+
+      <!-- Letter Spacing -->
+      <section>
+        <h2>8. letter-spacing</h2>
+
+        <div class="demo">
+          <p class="space">LETTER SPACING +8px</p>
+
+          <br />
+
+          <p class="tight">LETTER SPACING -2px</p>
+        </div>
+      </section>
+
+      <!-- Text Align -->
+      <section>
+        <h2>9. text-align</h2>
+
+        <div class="demo">
+          <p class="left">Left Alignment</p>
+
+          <hr />
+
+          <p class="center">Center Alignment</p>
+
+          <hr />
+
+          <p class="right">Right Alignment</p>
+
+          <hr />
+
+          <p class="justify">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit
+            amet consectetur adipisicing elit.
+          </p>
+        </div>
+      </section>
+
+      <!-- Text Transform -->
+      <section>
+        <h2>10. text-transform</h2>
+
+        <div class="demo">
+          <p class="upper">hello css</p>
+
+          <p class="lower">HELLO CSS</p>
+
+          <p class="cap">hello css typography</p>
+        </div>
+      </section>
+
+      <!-- Text Decoration -->
+      <section>
+        <h2>11. text-decoration</h2>
+
+        <div class="demo">
+          <p class="underline">Underline</p>
+
+          <p class="line-through">Line Through</p>
+
+          <p class="overline">Overline</p>
+
+          <a href="#" class="remove">Link Without Underline</a>
+        </div>
+      </section>
+
+      <!-- White Space -->
+      <section>
+        <h2>12. white-space</h2>
+
+        <div class="demo">
+          <h3>Normal</h3>
+
+          <div class="normal-space">This 
+            text contains many
+            my spaces.</div>
+          <br />
+
+          <h3>Nowrap</h3>
+
+          <div class="nowrap">
+            This is a very very very very very long line but it will never move Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+
+          <br />
+
+          <h3>Pre</h3>
+
+          <div class="pre">Hello 
+                          CSS 
+                               Learning 
+                                     Typography</div>
+        </div>
+      </section>
+
+      <!-- Ellipsis -->
+      <section>
+        <h2>13. text-overflow : ellipsis</h2>
+
+        <div class="demo">
+          <div class="ellipsis">
+            This is a very very very very very very very long sentence that
+            cannot fit inside this box and automatically shows three dots.
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

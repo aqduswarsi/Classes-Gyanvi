@@ -1,0 +1,212 @@
+/* =========================================================
+   DAY 19 — Pseudo-classes, Pseudo-elements & Combinators
+   Har rule ke sath comment hai jo bata raha hai kya ho raha hai
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 20px;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section {
+  margin-bottom: 50px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.section h2 {
+  margin-top: 0;
+  color: #111827;
+  border-bottom: 2px solid #2563eb;
+  padding-bottom: 8px;
+}
+
+/* =========================================================
+   1. PSEUDO-CLASSES
+   Meaning: element ki "state" ya "position" ke basis par style
+   ========================================================= */
+
+/* Normal button state */
+.btn {
+  padding: 10px 20px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* :hover -> jab mouse button ke upar aaye (bina click kiye) */
+.btn:hover {
+  background-color: #1d4ed8; /* darker blue on hover */
+}
+
+/* :active -> jab button ko click karke daba rahe ho (mouse down state) */
+.btn:active {
+  transform: scale(0.95); /* thoda chhota ho jayega press hone par */
+  background-color: #1e3a8a;
+}
+
+.form-group {
+  margin: 15px 0;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 300px;
+  outline: none;
+}
+
+/* :focus -> jab input select/active ho (click ya tab se) */
+.form-group input:focus {
+  border-color: #2563eb; /* border blue ho jayega */
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); /* halka glow effect */
+}
+
+.fruit-list {
+  list-style: none;
+  padding: 0;
+  max-width: 300px;
+}
+
+.fruit-list li {
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* :nth-child(odd) -> odd position wale items (1st, 3rd, 5th...) */
+
+.fruit-list li:nth-child(odd) {
+  background-color: #f9fafb;
+}
+.fruit-list li:nth-child(odd):hover {
+  background-color: #ffffff;
+}
+
+/* :nth-child(even) -> even position wale items (2nd, 4th, 6th...) */
+
+.fruit-list li:nth-child(even) {
+  background-color: #ffffff;
+}
+.fruit-list li:nth-child(even):hover {
+  background-color: #f9fafb;
+}
+
+/* :nth-child(3) -> sirf 3rd position wala item (yaha Mango) */
+.fruit-list li:nth-child(3) {
+  color: #16a34a; /* green text sirf 3rd item ka */
+  font-weight: bold;
+}
+
+/* :first-child -> list ka pehla item (yaha Apple) */
+.fruit-list li:first-child {
+  border-top: 2px solid #3b82f6;
+  font-weight: bold;
+}
+
+/* :last-child -> list ka aakhri item (yaha Papaya) */
+.fruit-list li:last-child {
+  border-bottom: 2px solid #3b82f6;
+  font-weight: bold;
+}
+
+/* =========================================================
+   2. PSEUDO-ELEMENTS
+   Meaning: element ke ek "part" ko target karna (jaise before/after content, placeholder text)
+   content property zaroor honi chahiye (::before/::after ke liye), chahe empty ho
+   ========================================================= */
+
+.card {
+  position: relative;
+  padding: 20px;
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* ::before -> card ke actual content se PEHLE kuch add karta hai */
+.card::before {
+  content: "★ "; /* star symbol add ho raha hai start me */
+  color: gold;
+  font-size: 18px;
+}
+
+/* ::after -> card ke content ke BAAD kuch add karta hai */
+.card::after {
+  content: "— end of card"; /*text add ho raha hai end me*/
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* ::after use karke "required" star add kar rahe hain bina extra HTML likhe */
+.required::after {
+  content: " *"; /* red star add hoga label ke baad */
+  color: red;
+}
+
+/* ::placeholder -> input ke andar wale placeholder text ko style karna */
+.placeholder-demo::placeholder {
+  color: #981a5d; /* light gray color */
+  font-style: italic;
+}
+
+/* =========================================================
+   3. COMBINATORS
+   Meaning: do selectors ke beech "relationship" define karna
+   ========================================================= */
+
+.combo-box {
+  padding: 20px;
+  border: 1px dashed #9ca3af;
+  border-radius: 8px;
+}
+
+/* Descendant combinator (space) -> andar kahin bhi ho, kitna bhi deep nested ho, sab match honge */
+.combo-box p {
+  margin: 8px 0;
+  color: #374151;
+}
+
+/* Child combinator (>) -> sirf DIRECT child match karega, andar nested wale nahi
+   Yaha span ke andar wala <p> match NAHI hoga kyunki wo combo-box ka direct child nahi hai */
+.combo-box > p {
+  font-weight: bold;
+}
+
+/* Adjacent sibling (+) -> h2 ke TURANT baad wala ek hi element match hoga */
+.combo-box h2 + p {
+  color: blue; /* sirf "Adjacent sibling of h2" wala paragraph blue hoga */
+}
+
+/* General sibling (~) -> h2 ke baad aane wale SAARE matching siblings (ek se zyada ho sakte hain) */
+.combo-box h2 ~ p {
+  font-style: italic; /* dono top-level (direct child) paragraphs italic honge */
+}

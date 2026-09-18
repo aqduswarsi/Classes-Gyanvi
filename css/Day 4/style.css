@@ -1,0 +1,232 @@
+
+/* ===========================
+GENERAL STYLING
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#f4f4f4;
+    font-family:Arial, Helvetica, sans-serif;
+    padding:40px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+.main-heading{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+section{
+    margin-bottom:50px;
+}
+
+h2{
+    margin-bottom:15px;
+    color:#0d6efd;
+    border-bottom:2px solid #ddd;
+    padding-bottom:8px;
+}
+
+/* h2:hover {
+    color: black;
+    background-color: aqua;
+    font-family: fantasy;
+} */
+
+.demo{
+    margin-top:15px;
+    padding:15px;
+    border:1px solid #ddd;
+    background:#fafafa;
+}
+
+/* ===========================
+1. font-family
+=========================== */
+
+.font1{
+    font-family:Arial;
+}
+
+.font2{
+    font-family:"Times New Roman";
+}   
+
+.font3{
+    font-family:"Courier New";
+}
+
+/* ===========================
+2. Web Safe Font
+=========================== */
+
+.websafe{
+    font-family:Verdana, Geneva, sans-serif;
+}
+
+/* ===========================
+3. Google Font
+=========================== */
+
+.google{
+    font-family:"Playwrite NZ Guides",'Poppins', sans-serif;
+}
+
+/* ===========================
+5. font-size
+=========================== */
+
+.size-small{
+    font-size:14px;
+}
+
+.size-medium{
+    font-size:24px;
+}
+
+.size-large{
+    font-size:40px;
+}
+
+/* ===========================
+6. font-weight
+=========================== */
+
+.light{
+    font-weight:300;
+}
+
+.normal{
+    font-weight:400;
+}
+
+.bold{
+    font-weight:700;
+}
+
+/* ===========================
+7. line-height
+=========================== */
+
+.line{
+    line-height:40px;
+    border:1px dashed gray;
+    padding:10px;
+}
+
+/* ===========================
+8. letter-spacing
+=========================== */
+
+.space{
+    letter-spacing:8px;
+}
+
+.tight{
+    letter-spacing: -2px;
+}
+
+/* ===========================
+9. text-align
+=========================== */
+
+.left{
+    text-align:left;
+}
+
+.center{
+    text-align:center;
+}
+
+.right{
+    text-align:right;
+}
+
+.justify{
+    text-align:justify;
+}
+
+/* ===========================
+10. text-transform
+=========================== */
+
+.upper{
+    text-transform:uppercase;
+}
+
+.lower{
+    text-transform:lowercase;
+}
+
+.cap{
+    text-transform:capitalize;
+}
+
+/* ===========================
+11. text-decoration
+=========================== */
+
+.underline{
+    text-decoration:underline;
+}
+
+.line-through{
+    text-decoration:line-through;
+}
+
+.overline{
+    text-decoration:overline;
+}
+
+.remove{
+    text-decoration:none;
+    color:rgb(0, 0, 0);
+}
+
+/* ===========================
+12. white-space
+=========================== */
+
+.normal-space{
+    white-space:normal;
+    width:400px;
+    /* border:1px solid black; */
+}
+
+.nowrap{
+    white-space:nowrap;
+    width:300px;
+    /* border:1px solid black; */
+}
+
+.pre{
+    white-space:pre;
+    /* border:1px solid black; */
+}
+
+/* ===========================
+13. text-overflow
+=========================== */
+
+.ellipsis{
+    width:300px;
+    white-space:nowrap;
+    overflow:hidden; 
+    text-overflow:ellipsis;
+    border:2px solid black;
+    padding:10px;
+}
+

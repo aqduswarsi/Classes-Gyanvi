@@ -1,0 +1,192 @@
+/* ==================================================
+   CSS VARIABLES (used across the whole page)
+   ================================================== */
+
+:root {
+  --primary: #fc1612;
+  --bg: #ffffff;
+  --text: #0a0a0b;
+  --card-bg: #f5f5f5;
+  --border: #140ddd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding: 40px 8%;
+}
+
+h1 {
+  margin-bottom: 40px;
+}
+
+.topic {
+  margin-bottom: 60px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.topic h2 {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.definition {
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+
+.definition code {
+  background: var(--card-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.demo-box {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  margin-bottom: 20px;
+}
+
+pre {
+  background: #1e1e1e;
+  color: #f5f5f5;
+  padding: 15px 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 14px;
+}
+
+
+/* ==================================================
+   1. TRANSITION DEMO
+   ================================================== */
+
+.transition-demo {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary);
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.4s ease, transform 0.4s ease;
+}
+
+.transition-demo:hover {
+  background: orangered;
+  transform: scale(1.1);
+}
+
+
+/* ==================================================
+   2. TRANSFORM DEMO
+   ================================================== */
+
+.transform-row {
+  gap: 25px;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 13px;
+  text-align: center;
+  transition: transform 0.4s ease;
+}
+
+.translate-demo:hover {
+  transform: translateY(-15px);
+}
+
+.scale-demo:hover {
+  transform: scale(1.2);
+}
+
+.rotate-demo:hover {
+  transform: rotate(20deg);
+}
+
+.skew-demo:hover {
+  transform: skew(10deg);
+}
+
+
+/* ==================================================
+   3. KEYFRAMES + ANIMATION DEMO
+   ================================================== */
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-40px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.bounce-ball {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--primary);
+  animation: bounce 1.2s ease-in-out infinite;
+}
+
+
+/* ==================================================
+   4. CSS VARIABLES + THEMING DEMO
+   ================================================== */
+
+.theme-card {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.theme-card p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.theme-card button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+}
+
+/* Scoped dark theme override (used inside the demo card) */
+.theme-card.dark {
+  --bg: #111111;
+  --text: #ffffff;
+}

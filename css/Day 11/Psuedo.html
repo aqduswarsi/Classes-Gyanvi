@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 19 - Pseudo-classes, Pseudo-elements & Combinators</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>Day 19 — Practice Page</h1>
+
+  <!-- ============================================================
+       SECTION 1: PSEUDO-CLASSES
+       Meaning: pseudo-class ek element ki "state" ya "position"
+       ke basis par style define karta hai. Colon (:) se likhte hain.
+       ============================================================ -->
+  <section class="section">
+    <h2>1. Pseudo-classes</h2>
+
+    <!--
+      :hover  -> jab mouse element ke upar aaye (bina click)
+      :active -> jab element ko click karke daba rahe ho (mouse down)
+      Neeche wale button pe dono apply honge.
+    -->
+    <button class="btn">Hover / Click Me</button>
+
+    <!--
+      :focus -> jab input ko click ya tab se select karte ho,
+      wo "focus" state me chala jata hai
+    -->
+    <div class="form-group">
+      <label for="name">Name (click to focus):</label>
+      <input type="text" id="name" placeholder="Type your name here" />
+    </div>
+
+    <!--
+      :nth-child(n)   -> parent ke andar nth position wala child select karta hai
+      :nth-child(odd) -> 1st, 3rd, 5th... items
+      :nth-child(even)-> 2nd, 4th, 6th... items
+      :first-child    -> parent ka sabse pehla child
+      :last-child     -> parent ka sabse aakhri child
+      Neeche list me sab 6 items par ye apply honge (CSS file me dekho).
+    -->
+    <ul class="fruit-list">
+      <li>Apple</li>   <!-- first-child -->
+      <li>Banana</li>
+      <li>Mango</li>   <!-- nth-child(3) specifically green -->
+      <li>Orange</li>
+      <li>Grapes</li>
+      <li>Papaya</li>  <!-- last-child -->
+    </ul>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2: PSEUDO-ELEMENTS
+       Meaning: pseudo-element element ke ek "specific part" ko
+       target karta hai (jaise before/after content, placeholder).
+       Double colon (::) se likhte hain. ::before/::after ko
+       content property chahiye hoti hai, chahe empty ho.
+       ============================================================ -->
+  <section class="section">
+    <h2>2. Pseudo-elements</h2>
+
+    <!--
+      ::before -> is card ke actual text content se PEHLE
+                  extra content (star ★) CSS se add hota hai
+      ::after  -> is card ke text content ke BAAD
+                  extra content ("— end of card") CSS se add hota hai
+      Ye extra content HTML me kahin nahi likha, CSS hi add karta hai
+    -->
+    <div class="card">
+      This is a card. Notice the star before and the line after.
+    </div>
+
+    <!--
+      ::after use karke label ke baad ek laal (*) star add kiya gaya hai,
+      taaki "required field" dikhaya ja sake bina HTML me * likhe
+    -->
+    <div class="form-group">
+      <label class="required" for="email">Email</label>
+      <input type="email" id="email" placeholder="you@example.com" />
+    </div>
+
+    <!--
+      ::placeholder -> input box ke andar dikhne wale placeholder
+      (hint) text ko style karta hai, jaise color aur font-style
+    -->
+    <div class="form-group">
+      <input type="text" class="placeholder-demo" placeholder="Placeholder text styled" />
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3: COMBINATORS
+       Meaning: combinators do selectors ke beech "relationship"
+       define karte hain (space, >, +, ~)
+       ============================================================ -->
+  <section class="section">
+    <div class="combo-box">
+        <p>Pehle wala paragraph (h2 se pehle)</p>
+      <h2>Combinator Demo</h2>
+
+      <!--
+        Adjacent sibling (+) -> h2 ke TURANT baad aane wala
+        pehla matching element. Ye <p> h2 ka turant next sibling hai,
+        isliye "h2 + p" rule sirf isी par lagega (blue color)
+      -->
+      <p>Adjacent sibling of h2 (turant baad wala paragraph)</p>
+
+      <span>
+        <!--
+          Descendant combinator (space) -> parent ke andar
+          KAHIN BHI ho, chahe kitna bhi deep nested ho, match ho jata hai.
+          Child combinator (>) -> ye match NAHI hoga kyunki ye <p>
+          .combo-box ka DIRECT child nahi hai (span ke andar hai)
+        -->
+        <p>Nested paragraph inside span (descendant, child nahi)</p>
+      </span>
+
+      <!--
+        General sibling (~) -> h2 ke baad aane wale SAARE
+        matching siblings (ek se zyada ho sakte hain).
+        Ye <p> bhi h2 ke baad hai (chahe adjacent na ho),
+        isliye "h2 ~ p" rule isपर bhi lagega (italic)
+      -->
+      <p>General sibling of h2 (baad me kahin bhi)</p>
+    </div>
+  </section>
+
+</body>
+</html>

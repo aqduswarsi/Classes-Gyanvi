@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 17 — CSS Grid Part 2 Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Day 17 — CSS Grid (Part 2)</h1>
+
+    <!-- SECTION 1 -->
+    <h2>1. grid-template-areas</h2>
+    <p class="note">
+      Layout is defined like a "map" using names. Same name repeated across
+      rows/columns = that box spans that space. "." would mean an empty cell.
+    </p>
+    <div class="demo1">
+      <div class="header">HEADER</div>
+      <div class="sidebar">SIDEBAR</div>
+      <div class="main">MAIN</div>
+      <div class="footer">FOOTER</div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <h2>2. Combining Grid + Flexbox</h2>
+    <p class="note">
+      Grid handles the overall page structure (sidebar / navbar / content).
+      Flexbox handles alignment of items *inside* the navbar and inside each
+      card.
+    </p>
+    <div class="demo2">
+      <div class="sidebar">SIDEBAR</div>
+      <div class="navbar">
+        <span>Logo</span>
+        <span>Search</span>
+        <span>Profile</span>
+      </div>
+      <div class="content">
+        <div class="card">
+          <h3>Card Title</h3>
+          <p>
+            This card uses Flexbox internally (column direction, space-between).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <h2>3. Dashboard Layout (Grid inside Grid)</h2>
+    <p class="note">
+      Outer layout = grid-template-areas. Inner "main" area = another grid using
+      <code>repeat(auto-fit, minmax(180px, 1fr))</code> — this makes the cards
+      automatically responsive without writing a single media query.
+    </p>
+    <div class="dashboard">
+      <div class="sidebar">
+        <h3>Dashboard</h3>
+        <p>Menu 1<br />Menu 2<br />Menu 3</p>
+      </div>
+      <div class="topbar">Top Navigation Bar</div>
+      <div class="main">
+        <div class="box">
+          <h3>Total Sales</h3>
+          <p>₹1,20,000</p>
+        </div>
+        <div class="box">
+          <h3>New Users</h3>
+          <p>320 this week</p>
+        </div>
+        <div class="box">
+          <h3>Orders</h3>
+          <p>58 pending</p>
+        </div>
+        <div class="box">
+          <h3>Revenue</h3>
+          <p>+12% growth</p>
+        </div>
+        <div class="box">
+          <h3>Visitors</h3>
+          <p>4,502 today</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <h2>4. Mini Project: Image Gallery using Grid</h2>
+    <p class="note">
+      First tile is "featured" using <code>grid-column: span 2</code> and
+      <code>grid-row: span 2</code>. In a real project, replace each &lt;div&gt;
+      with an &lt;img src="..."&gt; and add <code>object-fit: cover</code>.
+    </p>
+    <div class="gallery">
+      <div class="image big">
+        <img src="https://picsum.photos/id/1015/600/600" alt="Mountain" />
+      </div>
+
+      <div class="image">
+        <img src="https://picsum.photos/id/1016/400/400" alt="Nature" />
+      </div>
+
+      <div class="image">
+        <img src="https://picsum.photos/id/1018/400/400" alt="Mountain" />
+      </div>
+
+      <div class="image">
+        <img src="https://picsum.photos/id/1020/400/400" alt="Forest" />
+      </div>
+
+      <div class="image">
+        <img src="https://picsum.photos/id/1024/400/400" alt="Dog" />
+      </div>
+
+      <div class="image">
+        <img src="https://picsum.photos/id/1025/400/400" alt="Dog" />
+      </div>
+
+      <div class="image">
+        <img src="https://picsum.photos/id/1035/400/400" alt="Lake" />
+      </div>
+
+      <div class="image">
+        <img src="https://picsum.photos/id/1039/400/400" alt="Mountain" />
+      </div>
+
+      <div class="image">
+        <img src="https://picsum.photos/id/1040/400/400" alt="Nature" />
+      </div>
+    </div>
+  </body>
+</html>

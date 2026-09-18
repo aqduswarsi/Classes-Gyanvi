@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Animated Portfolio</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+
+  <header class="navbar">
+
+    <div class="logo">
+      Aqdus<span>.</span>
+    </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="theme-btn" id="themeBtn">🌙</button>
+
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="hero-content">
+
+        <p class="small-text">
+          HELLO, I'M AQDUS 👋
+        </p>
+
+        <h1>
+          Frontend Developer
+        </h1>
+
+        <p class="description">
+          I create modern, responsive and interactive
+          websites using HTML, CSS, JavaScript and React.
+        </p>
+
+        <div class="buttons">
+
+          <button class="primary-btn">
+            View My Work
+          </button>
+
+          <button class="secondary-btn">
+            Contact Me
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- Animated Circle -->
+
+      <div class="hero-visual">
+
+        <div class="circle">
+          💻
+        </div>
+
+        <div class="square">
+          ✦
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+
+      <p class="section-label">
+        ABOUT ME
+      </p>
+
+      <h2>
+        I build things for the web.
+      </h2>
+
+      <p>
+        I'm a frontend developer who enjoys creating
+        beautiful and user-friendly interfaces.
+      </p>
+
+    </section>
+
+
+    <!-- ================= PROJECTS ================= -->
+
+    <section class="projects" id="projects">
+
+      <p class="section-label">
+        MY WORK
+      </p>
+
+      <h2>
+        Recent Projects
+      </h2>
+
+
+      <div class="project-container">
+
+
+        <div class="card">
+
+          <div class="card-icon">
+            🚀
+          </div>
+
+          <h3>
+            Portfolio Website
+          </h3>
+
+          <p>
+            A responsive personal portfolio website
+            with modern animations.
+          </p>
+
+          <a href="#">
+            View Project →
+          </a>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="card-icon">
+            🌐
+          </div>
+
+          <h3>
+            Business Website
+          </h3>
+
+          <p>
+            A clean and responsive website for
+            a modern business.
+          </p>
+
+          <a href="#">
+            View Project →
+          </a>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="card-icon">
+            ⚡
+          </div>
+
+          <h3>
+            React Application
+          </h3>
+
+          <p>
+            Interactive frontend application built
+            using React.
+          </p>
+
+          <a href="#">
+            View Project →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact" id="contact">
+
+      <p class="section-label">
+        GET IN TOUCH
+      </p>
+
+      <h2>
+        Let's build something together.
+      </h2>
+
+      <button class="primary-btn">
+        Contact Me
+      </button>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <p>
+      © 2026 Aqdus. All rights reserved.
+    </p>
+
+  </footer>
+
+
+  <!-- ================= THEME TOGGLE SCRIPT ================= -->
+
+  <script>
+    const themeBtn = document.getElementById('themeBtn');
+    const root = document.documentElement;
+
+    // Page load par saved theme apply karo
+    if (localStorage.getItem('theme') === 'dark') {
+      root.classList.add('dark');
+      themeBtn.textContent = '☀️';
+    }
+
+    themeBtn.addEventListener('click', () => {
+      root.classList.toggle('dark');
+      const isDark = root.classList.contains('dark');
+      themeBtn.textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

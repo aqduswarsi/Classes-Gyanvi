@@ -1,0 +1,116 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    background:#f2f2f2;
+}
+                         
+/* Navbar */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#ca0808;
+    padding:15px 30px;
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
+nav h2{
+    color:white;
+}
+
+ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+}
+
+a{
+    color:white;
+    text-decoration:none;
+}
+
+/* Heading */
+
+.heading{
+    text-align:center;
+    padding:40px;
+}
+
+/* Cards */
+
+.cards{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    padding:20px;
+}
+
+.card{
+    width:280px;
+    background:white;
+    text-align:center;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+.card img{
+    width:100%;
+    border-radius:10px;
+}
+
+.card h3{
+    margin:15px 0;
+}
+
+button{
+    margin-top:15px;
+    padding:10px 20px;
+    border:none;
+    background:#333;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+/* Equal Columns */
+
+.box{
+    display:flex;
+    gap:20px;
+    padding:30px;
+    text-align:center;
+}
+
+.box div{
+    flex:1;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    nav{
+        gap:15px;
+    }
+
+    ul{ 
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .box{
+        flex-direction:column;
+    }
+
+}

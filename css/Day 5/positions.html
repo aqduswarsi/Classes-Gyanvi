@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .parent {
+      position: relative;
+      background: lightgray;
+      padding: 40px;
+      width: 400px;
+      height: 200px;
+      margin: 50px auto;
+      border: 2px solid black;
+    }
+
+    .relative-box {
+      position: relative;
+      top: 20px;
+      left: 30px;
+      background: lightblue;
+      padding: 10px;
+      border: 1px solid blue;
+    }
+
+    .absolute-box {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: lightcoral;
+      padding: 10px;
+      border: 1px solid red;
+    }
+
+    .normal-box {
+      background: lightgreen;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid green;
+    }
+  </style>
+</head>
+<body>
+
+<div class="parent">
+  <h3>Parent Box (relative)</h3>
+  
+  <div class="relative-box">
+    I am Relative (moved 20px down, 30px right)
+  </div>
+
+  <div class="normal-box">
+    I am Normal (no position)
+  </div>
+
+  <div class="absolute-box">
+    I am Absolute (bottom-right of parent)
+  </div>
+</div>
+
+</body>
+</html>

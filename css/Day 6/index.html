@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 14 — Flexbox (Part 1)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>Flexbox — Container &amp; Item Properties</h1>
+  </header>
+
+  <nav class="toc">
+    <div class="toc-group">
+      <a href="#display-flex">display: flex</a>
+      <a href="#flex-direction">flex-direction</a>
+      <a href="#flex-wrap">flex-wrap</a>
+      <a href="#justify-content">justify-content</a>
+      <a href="#align-items">align-items</a>
+      <a href="#align-content">align-content</a>
+    </div>
+    <div class="toc-group">
+      <a href="#flex-grow">flex-grow</a>
+      <a href="#flex-shrink">flex-shrink</a>
+      <a href="#flex-basis">flex-basis</a>
+      <a href="#order">order</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="topic-section" id="display-flex">
+      <div class="topic-head">
+        <h2>display: flex</h2>
+      </div>
+      <p class="explain">Kisi bhi element pe <code>display: flex</code> lagate hi wo ek <strong>flex container</strong> ban jaata hai, aur uske direct children automatically <strong>flex items</strong> ban jaate hain. Bina kisi float ya inline-block jugaad ke items ek row mein side-by-side aa jaate hain — ye flexbox ka default behaviour hai.</p>
+      <pre class="code"><code>.container {
+  display: flex;
+}</code></pre>
+      <div class="demo-frame">
+        <div class="demo-box demo-flex-basic">
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="topic-section" id="flex-direction">
+      <div class="topic-head">
+        <h2>flex-direction</h2>
+      </div>
+      <p class="explain">Ye decide karta hai ki main axis kis direction mein chalega — items row mein jaayenge ya column mein, aur normal order mein ya reverse mein.</p>
+      <pre class="code"><code>.row        { flex-direction: row; }         /* default, left → right */
+.row-rev    { flex-direction: row-reverse; } /* right → left */
+.column     { flex-direction: column; }      /* top → bottom */
+.column-rev { flex-direction: column-reverse; } /* bottom → top */</code></pre>
+      <div class="demo-grid">
+        <div class="demo-cell">
+          <span class="demo-caption">row</span>
+          <div class="demo-frame">
+            <div class="demo-box" style="flex-direction: row;">
+              <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-cell">
+          <span class="demo-caption">row-reverse</span>
+          <div class="demo-frame">
+            <div class="demo-box" style="flex-direction: row-reverse;">
+              <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-cell">
+          <span class="demo-caption">column</span>
+          <div class="demo-frame demo-frame-tall">
+            <div class="demo-box" style="flex-direction: column;">
+              <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-cell">
+          <span class="demo-caption">column-reverse</span>
+          <div class="demo-frame demo-frame-tall">
+            <div class="demo-box" style="flex-direction: column-reverse;">
+              <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="topic-section" id="flex-wrap">
+      <div class="topic-head">
+        <h2>flex-wrap</h2>
+      </div>
+      <p class="explain">Default mein flexbox saare items ko <strong>ek hi line</strong> mein fit karne ki koshish karta hai, chahe wo shrink hi kyun na ho jaayein. <code>flex-wrap: wrap</code> lagane se jab space kam pade, items agli line mein wrap ho jaate hain.</p>
+      <pre class="code"><code>.container {
+  display: flex;
+  flex-wrap: wrap; /* nowrap (default) | wrap | wrap-reverse */
+}</code></pre>
+      <div class="demo-grid">
+        <div class="demo-cell">
+          <span class="demo-caption">nowrap (default) — items shrink ho jaate hain</span>
+          <div class="demo-frame">
+            <div class="demo-box" style="flex-wrap: nowrap;">
+              <div class="item wide">1</div><div class="item wide">2</div><div class="item wide">3</div><div class="item wide">4</div><div class="item wide">5</div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-cell">
+          <span class="demo-caption">wrap — agli line mein chale jaate hain</span>
+          <div class="demo-frame demo-frame-tall">
+            <div class="demo-box" style="flex-wrap: wrap;">
+              <div class="item wide">1</div><div class="item wide">2</div><div class="item wide">3</div><div class="item wide">4</div><div class="item wide">5</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="topic-section" id="justify-content">
+      <div class="topic-head">
+        <h2>justify-content</h2>
+      </div>
+      <p class="explain">Items ko <strong>main axis</strong> (default: horizontal) ke along align/distribute karta hai — extra khaali space ko kaise use karna hai, ye decide karta hai.</p>
+      <pre class="code"><code>.container {
+  display: flex;
+  justify-content: flex-start | flex-end | center |
+                   space-between | space-around | space-evenly;
+}</code></pre>
+      <div class="demo-grid">
+        <div class="demo-cell">
+          <span class="demo-caption">flex-start</span>
+          <div class="demo-frame"><div class="demo-box" style="justify-content: flex-start;"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div></div>
+        </div>
+        <div class="demo-cell">
+          <span class="demo-caption">center</span>
+          <div class="demo-frame"><div class="demo-box" style="justify-content: center;"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div></div>
+        </div>
+        <div class="demo-cell">
+          <span class="demo-caption">flex-end</span>
+          <div class="demo-frame"><div class="demo-box" style="justify-content: flex-end;"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div></div>
+        </div>
+        <div class="demo-cell">
+          <span class="demo-caption">space-between</span>
+          <div class="demo-frame"><div class="demo-box" style="justify-content: space-between;"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div></div>
+        </div>
+        <div class="demo-cell">
+          <span class="demo-caption">space-around</span>
+          <div class="demo-frame"><div class="demo-box" style="justify-content: space-around;"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div></div>
+        </div>
+        <div class="demo-cell">
+          <span class="demo-caption">space-evenly</span>
+          <div class="demo-frame"><div class="demo-box" style="justify-content: space-evenly;"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="topic-section" id="align-items">
+      <div class="topic-head">
+        <h2>align-items</h2>
+      </div>
+      <p class="explain">Items ko <strong>cross axis</strong> (main axis ke perpendicular — default: vertical) ke along align karta hai. Ek single line ke andar items kaise align honge, ye control karta hai.</p>
+      <pre class="code"><code>.container {
+  display: flex;
+  align-items: stretch | flex-start | flex-end | center | baseline;
+}</code></pre>
+      <div class="demo-grid">
+        <div class="demo-cell">
+          <span class="demo-caption">stretch (default)</span>
+          <div class="demo-frame demo-frame-tall"><div class="demo-box" style="align-items: stretch;"><div class="item no-fixed-height">1</div><div class="item no-fixed-height">2</div><div class="item no-fixed-height">3</div></div></div>
+        </div>
+        <div class="demo-cell">
+          <span class="demo-caption">flex-start</span>
+          <div class="demo-frame demo-frame-tall"><div class="demo-box" style="align-items: flex-start;"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div></div>
+        </div>
+        <div class="demo-cell">
+          <span class="demo-caption">center</span>
+          <div class="demo-frame demo-frame-tall"><div class="demo-box" style="align-items: center;"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div></div>
+        </div>
+        <div class="demo-cell">
+          <span class="demo-caption">flex-end</span>
+          <div class="demo-frame demo-frame-tall"><div class="demo-box" style="align-items: flex-end;"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="topic-section" id="align-content">
+      <div class="topic-head">
+        <h2>align-content</h2>
+      </div>
+      <p class="explain"><code>align-items</code> se confuse mat hona — ye tab kaam aata hai jab <strong>multiple lines</strong> (wrap ki wajah se) ho. Ye poori lines ke group ko cross axis ke along distribute karta hai. Single line ho to iska koi effect nahi dikhta.</p>
+      <pre class="code"><code>.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start | center | flex-end |
+                 space-between | space-around | stretch;
+}</code></pre>
+      <div class="demo-grid">
+        <div class="demo-cell">
+          <span class="demo-caption">flex-start</span>
+          <div class="demo-frame demo-frame-tall"><div class="demo-box" style="flex-wrap: wrap; align-content: flex-start;"><div class="item wide">1</div><div class="item wide">2</div><div class="item wide">3</div><div class="item wide">4</div><div class="item wide">5</div><div class="item wide">6</div></div></div>
+        </div>
+        <div class="demo-cell">
+          <span class="demo-caption">center</span>
+          <div class="demo-frame demo-frame-tall"><div class="demo-box" style="flex-wrap: wrap; align-content: center;"><div class="item wide">1</div><div class="item wide">2</div><div class="item wide">3</div><div class="item wide">4</div><div class="item wide">5</div><div class="item wide">6</div></div></div>
+        </div>
+        <div class="demo-cell">
+          <span class="demo-caption">space-between</span>
+          <div class="demo-frame demo-frame-tall"><div class="demo-box" style="flex-wrap: wrap; align-content: space-between;"><div class="item wide">1</div><div class="item wide">2</div><div class="item wide">3</div><div class="item wide">4</div><div class="item wide">5</div><div class="item wide">6</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <h2 style="text-align:center; margin-top:20px;">Flex Item Properties</h2>
+
+    <section class="topic-section" id="flex-grow">
+      <div class="topic-head">
+        <h2>flex-grow</h2>
+      </div>
+      <p class="explain">Batata hai ki container mein jo <strong>extra khaali space</strong> bacha hai, usme se ek item kitna hissa lekar grow kare, doosre items ke comparison mein. Default value <code>0</code> hoti hai (grow nahi karta).</p>
+      <pre class="code"><code>.item-2 {
+  flex-grow: 2; /* isse doosron ke comparison mein 2x zyada space lega */
+}</code></pre>
+      <div class="demo-frame">
+        <div class="demo-box demo-flex-basic">
+          <div class="item" style="flex-grow: 1;">grow: 1</div>
+          <div class="item" style="flex-grow: 2;">grow: 2</div>
+          <div class="item" style="flex-grow: 3;">grow: 3</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="topic-section" id="flex-shrink">
+      <div class="topic-head">
+        <h2>flex-shrink</h2>
+      </div>
+      <p class="explain">Batata hai ki jab container mein <strong>space kam pade</strong>, to ek item doosron ke comparison mein kitna shrink ho. Default value <code>1</code> hoti hai (sab equally shrink hote hain). <code>0</code> set karne se wo item shrink hi nahi hoga.</p>
+      <pre class="code"><code>.item-2 {
+  flex-shrink: 0; /* ye item kabhi shrink nahi hoga */
+}</code></pre>
+      <div class="demo-frame">
+        <div class="demo-box demo-flex-basic no-wrap">
+          <div class="item wide" style="flex-shrink: 1;">shrink: 1</div>
+          <div class="item wide" style="flex-shrink: 0;">shrink: 0</div>
+          <div class="item wide" style="flex-shrink: 3;">shrink: 3</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="topic-section" id="flex-basis">
+      <div class="topic-head">
+        <h2>flex-basis</h2>
+      </div>
+      <p class="explain">Item ki <strong>starting size</strong> set karta hai — grow/shrink hone se pehle. Ye <code>width</code> jaisa hi hai but flex context mein — <code>width</code> ke bajaye <code>flex-basis</code> ko priority milti hai.</p>
+      <pre class="code"><code>.item {
+  flex-basis: 200px; /* auto (default) | length | % | content */
+}</code></pre>
+      <div class="demo-frame">
+        <div class="demo-box demo-flex-basic">
+          <div class="item" style="flex-basis: 60px; flex-grow: 0;">60px</div>
+          <div class="item" style="flex-basis: 160px; flex-grow: 0;">160px</div>
+          <div class="item" style="flex-basis: 260px; flex-grow: 0;">260px</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="topic-section" id="order">
+      <div class="topic-head">
+        <h2>order</h2>
+      </div>
+      <p class="explain">HTML mein items ka source order badle bina, unka <strong>visual order</strong> change karta hai. Default value <code>0</code> hoti hai — jitna kam number, utna pehle dikhega.</p>
+      <pre class="code"><code>.item-1 { order: 3; }
+.item-2 { order: 1; }
+.item-3 { order: 2; }</code></pre>
+      <div class="demo-frame">
+        <div class="demo-box demo-flex-basic">
+          <div class="item" style="order: 5;">1st in HTML<br></div>
+          <div class="item" style="order: 1;">2nd in HTML<br></div>
+          <div class="item" style="order: 2;">3rd in HTML<br></div>
+          <div class="item" style="order: 3;">4th in HTML<br></div>
+          <div class="item" style="order: 4;">5th in HTML<br></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>Day 14 — Flexbox (Part 1) · single-file reference</p>
+  </footer>
+
+</body>
+</html>

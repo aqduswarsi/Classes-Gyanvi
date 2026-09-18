@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 20 — Transitions, Animations & CSS Variables</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Day 20 — Transitions, Animations & CSS Variables</h1>
+
+  <!-- ================= 1. TRANSITION ================= -->
+  <section class="topic">
+    <h2>1. transition</h2>
+    <p class="definition">
+      <b>Definition:</b> <code>transition</code> ek property hai jo kisi CSS value ke change ko
+      instant hone ki jagah smooth (animated) banati hai — jab woh value hover, click, ya JS se change hoti hai.
+      Syntax: <code>transition: property duration timing-function;</code>
+    </p>
+
+    <div class="demo-box">
+      <button class="transition-demo">Hover Me</button>
+    </div>
+
+    <pre><code>.transition-demo {
+  background: var(--primary);
+  transition: background 0.4s ease, transform 0.4s ease;
+}
+
+.transition-demo:hover {
+  background: orangered;
+  transform: scale(1.1);
+}</code></pre>
+  </section>
+
+  <!-- ================= 2. TRANSFORM ================= -->
+  <section class="topic">
+    <h2>2. transform</h2>
+    <p class="definition">
+      <b>Definition:</b> <code>transform</code> element ki position, size, ya angle change karta hai
+      bina layout todhe. Common values: <code>translate()</code> (move), <code>scale()</code> (size),
+      <code>rotate()</code> (angle), <code>skew()</code> (tilt).
+    </p>
+
+    <div class="demo-box transform-row">
+      <div class="box translate-demo">Translate</div>
+      <div class="box scale-demo">Scale</div>
+      <div class="box rotate-demo">Rotate</div>
+      <div class="box skew-demo">Skew</div>
+    </div>
+
+    <pre><code>.translate-demo:hover { transform: translateY(-15px); }
+.scale-demo:hover     { transform: scale(1.2); }
+.rotate-demo:hover    { transform: rotate(20deg); }
+.skew-demo:hover      { transform: skew(10deg); }</code></pre>
+  </section>
+
+  <!-- ================= 3. KEYFRAMES & ANIMATION ================= -->
+  <section class="topic">
+    <h2>3. @keyframes and animation</h2>
+    <p class="definition">
+      <b>Definition:</b> <code>@keyframes</code> se tum ek animation ke multiple stages (0% se 100%) define karte ho.
+      <code>animation</code> property us keyframe ko element pe apply karti hai — bina hover/click ke, khud chalti hai.
+      Syntax: <code>animation: name duration timing-function iteration-count;</code>
+    </p>
+
+    <div class="demo-box">
+      <div class="bounce-ball"></div>
+    </div>
+
+    <pre><code>@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-40px); }
+  100% { transform: translateY(0); }
+}
+
+.bounce-ball {
+  animation: bounce 1.2s ease-in-out infinite;
+}</code></pre>
+  </section>
+
+  <!-- ================= 4. CSS VARIABLES & THEMING ================= -->
+  <section class="topic">
+    <h2>4. CSS Custom Properties (--variable) & Theming</h2>
+    <p class="definition">
+      <b>Definition:</b> CSS variables (<code>--name</code>) reusable values hote hain, usually <code>:root</code>
+      mein define kiye jaate hain aur <code>var(--name)</code> se use hote hain. Theming (light/dark mode) mein
+      inhi variables ki values ko kisi class (jaise <code>.dark</code>) ke andar overwrite kiya jaata hai.
+    </p>
+
+    <div class="demo-box">
+      <div class="theme-card" id="themeCard">
+        <p>Yeh card apne colors <code>var(--primary)</code> jaisi CSS variables se le raha hai.</p>
+        <button id="themeToggle">Toggle Theme</button>
+      </div>
+    </div>
+
+    <pre><code>:root {
+  --primary: #6c5ce7;
+  --bg: #ffffff;
+  --text: #222222;
+}
+
+.dark {
+  --bg: #111111;
+  --text: #ffffff;
+}
+
+.theme-card {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.4s ease, color 0.4s ease;
+}</code></pre>
+  </section>
+
+  <script>
+    const btn = document.getElementById('themeToggle');
+    const card = document.getElementById('themeCard');
+    btn.addEventListener('click', () => card.classList.toggle('dark'));
+  </script>
+
+</body>
+</html>

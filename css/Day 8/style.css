@@ -1,0 +1,230 @@
+*{
+    margin:0;
+    padding:0; 
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    padding:20px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+h2{
+    margin:20px 0 10px;
+}
+
+hr{
+    margin:30px 0;
+}
+
+.box{
+    background:royalblue;
+    color:white;
+    border:2px solid black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+}
+
+/* --------------------------
+1. display:grid
+-------------------------- */
+
+.container1{
+    display:grid;
+}
+
+.container1 .box{
+    width:100px;
+    height:100px;
+}
+
+/* --------------------------
+2. grid-template-columns
+-------------------------- */
+
+.container2{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    /* grid-template-columns: 100px 100px 100px; */
+}
+
+.container2 .box{
+    height:100px;
+}
+
+/* --------------------------
+3. grid-template-rows
+-------------------------- */
+
+.container3{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:100px 200px;
+}
+
+.container3 .box{
+    border:2px solid white;
+}
+
+/* --------------------------
+4. gap
+-------------------------- */
+
+.container4{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.container4 .box{
+    height:100px;
+}
+
+/* --------------------------
+5. row-gap
+-------------------------- */
+
+.container5{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    row-gap:40px;
+}
+
+.container5 .box{
+    height:100px;
+}
+
+/* --------------------------
+6. column-gap
+-------------------------- */
+
+.container6{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    column-gap:40px;
+}
+
+.container6 .box{
+    height:100px;
+}
+
+/* --------------------------
+7. grid-column
+-------------------------- */
+
+.container7{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.container7 .box{
+    height:100px;
+}
+
+.container7 .box1{
+
+    grid-column:1 / 3;
+
+    /* OR */
+
+    /* grid-column:span 2; */
+
+    background:rgb(174, 54, 78);
+}
+
+/* --------------------------
+8. grid-row
+-------------------------- */
+
+.container8{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows:100px 100px 100px;
+    gap:15px;
+}
+
+.container8 .box2{
+
+    grid-row:1 / 3;
+
+    /* OR */
+
+    /* grid-row:span 2; */
+
+    background:green;
+}
+
+/* --------------------------
+9. Explicit Grid
+-------------------------- */
+
+.container9{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    grid-template-rows:120px 120px;
+
+    gap:15px;
+}
+
+.container9 .box{
+    height:120px;
+}
+
+/* --------------------------
+10. Implicit Grid
+(grid-auto-rows)
+-------------------------- */
+
+.container10{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    /* Only 2 rows are defined */
+
+    grid-template-rows:120px 120px;
+
+    /* Extra rows created automatically */
+
+    grid-auto-rows:120px;
+
+    gap:15px;
+}
+
+.container10 .box{
+    height:120px;
+}
+
+/* --------------------------
+11. grid-auto-columns
+-------------------------- */
+
+.container11{
+
+    display:grid;
+
+    grid-template-rows:100px;
+
+    grid-auto-flow:column;
+
+    grid-auto-columns:150px;
+
+    gap:15px;
+}
+
+.container11 .box{
+
+    height:100px;
+}

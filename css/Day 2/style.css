@@ -1,0 +1,126 @@
+/* Universal Selector */
+
+*{
+    margin:0;
+    padding:0;
+}
+
+/* Element Selector */
+
+body{
+    background-color:#f5f5f5;
+    font-family:Arial, sans-serif;
+}
+
+/* Group Selector */
+
+h1,p{
+    text-align:center;
+}
+
+/* Class Selector */
+
+.logo{
+    color:gold;
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+/* Navbar */
+
+nav{
+    background-color:rgb(197, 40, 40);
+    text-align:center;
+    padding:20px;
+}
+
+a{
+    color:white;
+    text-decoration:none;
+    margin:0 12px;
+    font-size:20px;
+}
+
+/* Hero */
+
+.hero{
+    width:100vw;
+    height:60vh;
+
+    background-image:url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    text-align:center;
+
+    padding-top:120px;
+}
+
+.hero h1{
+    color:rgb(177, 1, 1);
+    font-size:3rem;
+    /* display:inline-block; */
+    padding:15px 30px;
+}
+
+.hero p{
+    color:rgb(214, 32, 32);
+    font-size:1.5rem;
+    /* display:inline-block; */
+    padding:10px 20px;
+    margin-top:20px;
+}
+
+/* About */
+
+.about{
+    width:80%;
+    margin:30px auto;
+    padding:20px;
+    background:hsl(209, 74%, 71%);
+    text-align:center;
+}
+.about h2{
+    font-size:2rem;
+}
+
+.text{
+    font-size:1.5em;
+    margin-top:10px;
+}
+
+/* Cards */
+
+.cards{
+    background:hsla(120,100%,70%,0.3);
+    padding:20px;
+    text-align:center;
+}
+
+.card{
+    width:220px;
+    height:100px;
+    margin:20px auto;
+    color:white;
+    line-height:100px;
+    font-size:22px;
+}
+
+/* Named Color */
+
+.card1{
+    background:red;
+}
+
+/* RGB */
+
+.card2{
+    background:rgb(0,120,255);
+}
+
+/* Linear Gradient */
+
+.card3{
+    background:linear-gradient(to right,orange,pink);
+}
