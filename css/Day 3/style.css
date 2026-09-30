@@ -31,19 +31,19 @@ h2{
 
 /* Background Color */
 .bg-color{
-    background-color:rgb(73, 176, 217);
+    background-color:rgb(35, 26, 163);
 }
 
 /* Background Image */
 .bg-image{
-    background-image:url("https://picsum.photos/300/180");
+    background-image:url("https://picsum.photos/300/300");
 }
 
 /* Background Repeat */
 .repeat{
     background-image:url("https://picsum.photos/80");
     background-repeat:repeat;
-}
+} 
 
 .no-repeat{
     background-image:url("https://picsum.photos/80");
@@ -99,7 +99,7 @@ h2{
 
 /* Gradients */
 .linear{
-    background:linear-gradient(to left,rgb(76, 0, 255),orange,yellow,rgb(221, 41, 41));
+    background:linear-gradient(to right,rgb(76, 0, 255),orange,yellow,rgb(221, 41, 41));
 }
 
 .linear-angle{
@@ -107,7 +107,7 @@ h2{
 }
 
 .radial{
-    background:radial-gradient(circle,red,yellow,green);
+    background:radial-gradient(circle,red,yellow,green,blue,maroon,aqua);
 }
 
 /* Box Model */

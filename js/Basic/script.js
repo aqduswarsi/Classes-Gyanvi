@@ -88,5 +88,52 @@
 
 
 
+//Q1
 
+// let prize=1200;
+// let discount=10;
+
+// let discountamount=(prize*discount)/100;
+// let final=prize-discountamount;
+
+// if(discount=0){
+//     console.log("no discount");
+    
+// }
+// else{
+//     console.log(discountamount);
+    
+//     console.log(final);
+    
+// }
+
+//Q3
+
+// let numbers = [12, 7, 20, 15, 8, 25];
+
+// for(let num of numbers){
+//     if(num>10){
+//         console.log(num);
+        
+//     }
+// }
+
+//Q4
+
+// function calculateBill(price, Quantity=1){
+//     console.log(price*Quantity);
+// }
+// calculateBill(500,2);
+// calculateBill(500);
+
+//Q5
+
+// let subjects = ["HTML", "CSS", "JavaScript", "React", "Node"];
+
+// subjects.splice(2,1,"Typescript")
+// console.log(subjects);
+
+// arr1=subjects.slice(0,3)
+
+// console.log(arr1);
 

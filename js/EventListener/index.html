@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 29 — DOM Manipulation (Part 2) & Events</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+<h1>📅 Day 29 — DOM Manipulation (Part 2) & Events</h1>
+<p class="sub">Event listeners • common events • event object • bubbling & delegation — sab kuch live demo ke sath</p>
+
+<h2><span class="num">1.</span>addEventListener kya hota hai?</h2>
+<p>Pehle hum <code>onclick="..."</code> jaisa inline tareeka use karte the HTML mein. Lekin real projects mein hum JS se hi listener attach karte hain — clean aur flexible tareeka hai.</p>
+<pre><code>const btn = document.querySelector("#myBtn");
+
+btn.addEventListener("click", function() {
+  console.log("Button dabaya gaya!");
+});</code></pre>
+<p><span class="tag">syntax</span> <code>element.addEventListener(eventType, callbackFunction)</code></p>
+<p>Fayda ye hai ki ek hi element pe <b>multiple listeners</b> laga sakte ho, aur baad mein <code>removeEventListener</code> se hata bhi sakte ho.</p>
+
+<div class="card demo">
+  <p><b>Try karo:</b></p>
+  <button id="demo1btn">Click Me</button>
+  <div class="log" id="demo1log">yahan result aayega...</div>
+</div>
+
+<h2><span class="num">2.</span>Common Events</h2>
+<p>Ye sabse zyada use hone wale events hain — inhe achhe se samajh lo, 90% kaam inhi se chalta hai.</p>
+
+<div class="card">
+  <p><span class="tag">click</span> jab user kisi element pe click kare</p>
+  <button id="clickDemo">Yahan click karo</button>
+  <span id="clickResult" class="note"></span>
+</div>
+
+<div class="card">
+  <p><span class="tag">mouseover</span> jab mouse kisi element ke upar jaaye (hover)</p>
+  <div class="box" id="hoverBox" style="cursor:pointer;">Mouse le jao yahan</div>
+</div>
+
+<div class="card">
+  <p><span class="tag">keydown</span> jab keyboard ki koi key dabai jaaye</p>
+  <input type="text" id="keyDemo" placeholder="Yahan type karo...">
+  <div class="log" id="keyLog">key ka naam yahan dikhega</div>
+</div>
+
+<div class="card">
+  <p><span class="tag">submit</span> jab form submit ho (button ya Enter dabane par)</p>
+  <form id="formDemo">
+    <input type="text" id="formInput" placeholder="Apna naam likho" required>
+    <button type="submit">Submit</button>
+  </form>
+  <div class="log" id="formLog"></div>
+</div>
+
+<div class="card">
+  <p><span class="tag">change</span> jab select/checkbox/input ki value change ho aur focus hate hi trigger ho</p>
+  <select id="changeDemo">
+    <option value="">-- Choose --</option>
+    <option value="html">HTML</option>
+    <option value="css">CSS</option>
+    <option value="js">JavaScript</option>
+  </select>
+  <div class="log" id="changeLog"></div>
+</div>
+
+<h2><span class="num">3.</span>Event Object, preventDefault() & stopPropagation()</h2>
+<p>Jab bhi koi event fire hota hai, JS automatically ek <b>event object</b> bana ke callback function mein pass kar deta hai. Isme event ki puri detail hoti hai — kaunsa element, kaunsi key, coordinates, sab kuch.</p>
+<pre><code>btn.addEventListener("click", function(event) {
+  console.log(event.target);   // kis element pe click hua
+  console.log(event.type);     // event ka type: "click"
+});</code></pre>
+
+<div class="card">
+  <p><b><code>preventDefault()</code></b> — kisi event ka <i>default behaviour</i> rokta hai.</p>
+  <p class="note">Example: form submit hote hi normally page reload ho jaata hai. preventDefault() se wo rukta hai.</p>
+  <form id="pdForm">
+    <input type="text" placeholder="kuch bhi likho">
+    <button type="submit">Submit (no reload)</button>
+  </form>
+  <div class="log" id="pdLog">Submit karke dekho — page reload nahi hoga</div>
+</div>
+
+<div class="card">
+  <p><b><code>stopPropagation()</code></b> — event ko upar wale (parent) elements tak jaane se rokta hai. Isse pehle "bubbling" samajhte hain niche 👇</p>
+</div>
+
+<h2><span class="num">4.</span>Event Bubbling & Delegation</h2>
+<p><b>Bubbling:</b> jab ek nested element pe event fire hota hai, to wo event uske andar se <i>bahar</i> ki taraf — parent → grandparent — tak "bubble up" karta hai, jaise pani mein bubble upar jaata hai.</p>
+
+<div class="card demo">
+  <p>Inner box pe click karke dekho — dekho kaise event outer tak bubble karta hai:</p>
+  <div class="box" id="outer">Outer
+    <div class="box" id="middle">Middle
+      <div class="box" id="inner">Inner (click here)</div>
+    </div>
+  </div>
+  <div class="log" id="bubbleLog"></div>
+  <button id="bubbleReset" style="margin-top:10px;">Reset log</button>
+</div>
+
+<div class="card">
+  <p>Agar Inner ke click handler mein <code>event.stopPropagation()</code> laga dete, to sirf "Inner clicked" print hota — Middle aur Outer tak event pahunchta hi nahi.</p>
+</div>
+
+<p><b>Event Delegation:</b> ye bubbling ka hi smart use hai. Instead of har child pe alag-alag listener lagane ke, hum ek hi listener <i>parent</i> pe laga dete hain aur <code>event.target</code> check karte hain ki click kis child pe hua.</p>
+<pre><code>// 100 li items ho tab bhi ek hi listener kaafi hai
+list.addEventListener("click", function(event) {
+  if (event.target.tagName === "LI") {
+    console.log("Clicked:", event.target.textContent);
+  }
+});</code></pre>
+
+<div class="card demo">
+  <p>Kisi bhi item pe click karo — listener sirf parent <code>&lt;ul&gt;</code> pe laga hai:</p>
+  <ul id="delegateList">
+    <li class="box">Item 1</li>
+    <li class="box">Item 2</li>
+    <li class="box">Item 3</li>
+  </ul>
+  <div class="log" id="delegateLog"></div>
+</div>
+
+<div class="card">
+  <p><b>Delegation kyun fayda mand hai?</b></p>
+  <ul class="plain-list">
+    <li>Performance better — ek hi listener, sabko cover karta hai</li>
+    <li>Dynamically add kiye gaye naye elements bhi automatically kaam karte hain (naya <code>&lt;li&gt;</code> add karo, usko alag se listener lagane ki zaroorat nahi)</li>
+  </ul>
+</div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>

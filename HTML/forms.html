@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HTML Forms - Day 6 & Day 7</title>
+</head>
+
+<body>
+
+    <h1>HTML Forms - Day 6 & Day 7</h1>
+
+    <!-- =====================================================
+         DAY 6 — FORMS PART 1
+         ===================================================== -->
+
+
+    <!--
+        FORM TAG
+
+        <form> ke andar hum user se data lete hain.
+
+        action:
+        Form submit hone ke baad data kahan bhejna hai.
+
+        method:
+        Data kaise send hoga.
+
+        GET:
+        Data URL mein visible hota hai.
+
+        POST:
+        Data request body mein send hota hai.
+    -->
+
+    <h2>1. Basic Form</h2>
+
+    <form action="/submit" method="POST">
+
+        <!-- Label user ko batata hai ki input kis cheez ke liye hai -->
+
+        <label for="name">Name:</label>
+
+        <input
+            type="text"
+            id="name"
+            name="username"
+            placeholder="Enter your name"
+        >
+
+        <br><br>
+
+        <label for="email">Email:</label>
+
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+        >
+
+        <br><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+
+
+    <!-- =====================================================
+         GET vs POST
+         ===================================================== -->
+
+    <h2>2. GET Method Example</h2>
+
+    <!--
+        GET mein data URL mein dikhta hai.
+
+        Example:
+        /search?username=Aqdus&city=Delhi
+    -->
+
+    <form action="/search" method="GET">
+
+        <label for="searchName">Name:</label>
+
+        <input
+            type="text"
+            id="searchName"
+            name="username"
+        >
+
+        <br><br>
+
+        <label for="city">City:</label>
+
+        <input
+            type="text"
+            id="city"
+            name="city"
+        >
+
+        <br><br>
+
+        <button type="submit">Search</button>
+
+    </form>
+
+
+
+    <h2>3. POST Method Example</h2>
+
+    <!--
+        POST mein data URL mein directly visible nahi hota.
+
+        Login, registration, sensitive data etc. ke liye
+        generally POST use kiya jata hai.
+    -->
+
+    <form action="/login" method="POST">
+
+        <label for="loginEmail">Email:</label>
+
+        <input
+            type="email"
+            id="loginEmail"
+            name="email"
+        >
+
+        <br><br>
+
+        <label for="password">Password:</label>
+
+        <input
+            type="password"
+            id="password"
+            name="password"
+        >
+
+        <br><br>
+
+        <button type="submit">Login</button>
+
+    </form>
+
+
+
+    <!-- =====================================================
+         INPUT TYPES
+         ===================================================== -->
+
+    <h2>4. Different Input Types</h2>
+
+    <form>
+
+        <!-- TEXT -->
+
+        <label for="fullName">Full Name:</label>
+
+        <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            placeholder="Enter full name"
+        >
+
+        <br><br>
+
+
+        <!-- EMAIL -->
+
+        <label for="userEmail">Email:</label>
+
+        <input
+            type="email"
+            id="userEmail"
+            name="email"
+            placeholder="example@gmail.com"
+        >
+
+        <br><br>
+
+
+        <!-- PASSWORD -->
+
+        <label for="userPassword">Password:</label>
+
+        <input
+            type="password"
+            id="userPassword"
+            name="password"
+            placeholder="Enter password"
+        >
+
+        <br><br>
+
+
+        <!-- NUMBER -->
+
+        <label for="age">Age:</label>
+
+        <input
+            type="number"
+            id="age"
+            name="age"
+        >
+
+        <br><br>
+
+
+        <!-- DATE -->
+
+        <label for="dob">Date of Birth:</label>
+
+        <input
+            type="date"
+            id="dob"
+            name="dob"
+        >
+
+        <br><br>
+
+
+        <!-- CHECKBOX -->
+
+        <p>Skills:</p>
+
+        <input
+            type="checkbox"
+            id="html"
+            name="skills"
+            value="html"
+        >
+
+        <label for="html">HTML</label>
+
+
+        <input
+            type="checkbox"
+            id="css"
+            name="skills"
+            value="css"
+        >
+
+        <label for="css">CSS</label>
+
+
+        <input
+            type="checkbox"
+            id="javascript"
+            name="skills"
+            value="javascript"
+        >
+
+        <label for="javascript">JavaScript</label>
+
+        <br><br>
+
+
+        <!-- RADIO -->
+
+        <p>Gender:</p>
+
+        <!--
+            Same "name" hone ki wajah se
+            ek hi option select hoga.
+        -->
+
+        <input
+            type="radio"
+            id="male"
+            name="gender"
+            value="male"
+        >
+
+        <label for="male">Male</label>
+
+
+        <input
+            type="radio"
+            id="female"
+            name="gender"
+            value="female"
+        >
+
+        <label for="female">Female</label>
+
+
+        <input
+            type="radio"
+            id="other"
+            name="gender"
+            value="other"
+        >
+
+        <label for="other">Other</label>
+
+        <br><br>
+
+
+        <!-- FILE -->
+
+        <label for="resume">Upload Resume:</label>
+
+        <input
+            type="file"
+            id="resume"
+            name="resume"
+        >
+
+        <br><br>
+
+    </form>
+
+
+
+    <!-- =====================================================
+         LABEL, PLACEHOLDER, NAME, VALUE
+         ===================================================== -->
+
+    <h2>5. Label, Placeholder, Name & Value</h2>
+
+    <form>
+
+        <!--
+            label:
+            Input ka description.
+
+            placeholder:
+            Input ke andar temporary hint.
+
+            name:
+            Form submit hone par data ki key.
+
+            value:
+            Input ki actual/default value.
+        -->
+
+        <label for="username">Username:</label>
+
+        <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter username"
+            value="Aqdus"
+        >
+
+        <br><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+
+
+    <!-- =====================================================
+         TEXTAREA
+         ===================================================== -->
+
+    <h2>6. Textarea</h2>
+
+    <!--
+        textarea ka use large amount of text ke liye hota hai.
+
+        Example:
+        Message
+        Address
+        Feedback
+        Description
+    -->
+
+    <form>
+
+        <label for="message">Message:</label>
+
+        <br>
+
+        <textarea
+            id="message"
+            name="message"
+            rows="5"
+            cols="40"
+            placeholder="Write your message..."
+        ></textarea>
+
+    </form>
+
+
+
+    <!-- =====================================================
+         SELECT + OPTION
+         ===================================================== -->
+
+    <h2>7. Select & Option</h2>
+
+    <form>
+
+        <label for="course">Choose Course:</label>
+
+        <select id="course" name="course">
+
+            <option value="">-- Select Course --</option>
+
+            <option value="html">HTML</option>
+
+            <option value="css">CSS</option>
+
+            <option value="javascript">JavaScript</option>
+
+            <option value="react">React</option>
+
+        </select>
+
+    </form>
+
+
+
+    <!-- =====================================================
+         OPTGROUP
+         ===================================================== -->
+
+    <h2>8. Optgroup</h2>
+
+    <!--
+        optgroup options ko categories mein divide karta hai.
+    -->
+
+    <form>
+
+        <label for="technology">Choose Technology:</label>
+
+        <select id="technology" name="technology">
+
+            <option value="">-- Select --</option>
+
+
+            <optgroup label="Frontend">
+
+                <option value="html">HTML</option>
+
+                <option value="css">CSS</option>
+
+                <option value="javascript">JavaScript</option>
+
+                <option value="react">React</option>
+
+            </optgroup>
+
+
+            <optgroup label="Backend">
+
+                <option value="node">Node.js</option>
+
+                <option value="express">Express.js</option>
+
+                <option value="python">Python</option>
+
+            </optgroup>
+
+        </select>
+
+    </form>
+
+
+
+    <!-- =====================================================
+         DAY 7 — FORM VALIDATION
+         ===================================================== -->
+
+    <h2>DAY 7 — Form Validation</h2>
+
+
+    <!-- =====================================================
+         REQUIRED
+         ===================================================== -->
+
+    <h2>9. Required</h2>
+
+    <!--
+        required ka matlab:
+
+        Ye field empty nahi chhodi ja sakti.
+    -->
+
+    <form>
+
+        <label for="requiredName">Name:</label>
+
+        <input
+            type="text"
+            id="requiredName"
+            name="name"
+            required
+        >
+
+        <br><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+
+
+    <!-- =====================================================
+         MIN / MAX
+         ===================================================== -->
+
+    <h2>10. Min & Max</h2>
+
+    <!--
+        Number ke liye minimum aur maximum value.
+    -->
+
+    <form>
+
+        <label for="ageLimit">Age:</label>
+
+        <input
+            type="number"
+            id="ageLimit"
+            name="age"
+            min="18"
+            max="60"
+        >
+
+        <br><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+
+
+    <!-- =====================================================
+         MAXLENGTH
+         ===================================================== -->
+
+    <h2>11. Maxlength</h2>
+
+    <!--
+        maxlength maximum characters define karta hai.
+
+        Yahan maximum 10 characters enter kar sakte hain.
+    -->
+
+    <form>
+
+        <label for="phone">Phone:</label>
+
+        <input
+            type="text"
+            id="phone"
+            name="phone"
+            maxlength="10"
+        >
+
+        <br><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+
+
+    <!-- =====================================================
+         PATTERN
+         ===================================================== -->
+
+    <h2>12. Pattern</h2>
+
+    <!--
+        pattern ke through hum specific format enforce kar sakte hain.
+
+        [0-9]{10}
+
+        Matlab:
+        Sirf numbers
+        Exactly 10 digits
+    -->
+
+    <form id="mobileForm" action="#" method="post">
+
+        <div class="field">
+            <label for="mobile">Mobile Number:</label>
+            <input
+                type="tel"
+                id="mobile"
+                name="mobile"
+                inputmode="numeric"
+                autocomplete="tel-national"
+                maxlength="10"
+                pattern="[6-9][0-9]{9}"
+                placeholder="Enter 10 digit number"
+                title="Enter a valid 10 digit mobile number starting with 6, 7, 8 or 9"
+                required
+            >
+        </div>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+
+
+    <!-- =====================================================
+         FIELDSET & LEGEND
+         ===================================================== -->
+
+    <h2>13. Fieldset & Legend</h2>
+
+    <!--
+        fieldset related fields ko group karta hai.
+
+        legend us group ka title hota hai.
+    -->
+
+    <form>
+
+        <fieldset>
+
+            <legend>Personal Information</legend>
+
+
+            <label for="personName">Name:</label>
+
+            <input
+                type="text"
+                id="personName"
+                name="name"
+            >
+
+            <br><br>
+
+
+            <label for="personEmail">Email:</label>
+
+            <input
+                type="email"
+                id="personEmail"
+                name="email"
+            >
+
+        </fieldset>
+
+
+        <br>
+
+
+        <fieldset>
+
+            <legend>Account Information</legend>
+
+
+            <label for="accountUsername">Username:</label>
+
+            <input
+                type="text"
+                id="accountUsername"
+                name="username"
+            >
+
+            <br><br>
+
+
+            <label for="accountPassword">Password:</label>
+
+            <input
+                type="password"
+                id="accountPassword"
+                name="password"
+            >
+
+        </fieldset>
+
+    </form>
+
+
+
+    <!-- =====================================================
+         BUTTON TYPES
+         ===================================================== -->
+
+    <h2>14. Button Types</h2>
+
+    <form>
+
+        <input
+            type="text"
+            name="username"
+            placeholder="Enter something"
+        >
+
+        <br><br>
+
+
+        <!--
+            submit:
+            Form submit karta hai.
+        -->
+
+        <button type="submit">
+            Submit
+        </button>
+
+
+        <!--
+            reset:
+            Form ke fields ko initial state mein reset karta hai.
+        -->
+
+        <button type="reset">
+            Reset
+        </button>
+
+
+        <!--
+            button:
+            Normal button.
+
+            By default iska form submit karne ka kaam nahi hota.
+
+            JavaScript ke saath commonly use hota hai.
+        -->
+
+        <button type="button">
+            Normal Button
+        </button>
+
+    </form>
+
+
+
+    <!-- =====================================================
+         COMPLETE REGISTRATION FORM
+         ===================================================== -->
+
+    <h2>15. Complete Registration Form</h2>
+
+    <form
+        action="/register"
+        method="POST"
+    >
+
+        <fieldset>
+
+            <legend>Registration Form</legend>
+
+
+            <!-- NAME -->
+
+            <label for="registerName">
+                Full Name:
+            </label>
+
+            <input
+                type="text"
+                id="registerName"
+                name="fullName"
+                placeholder="Enter your full name"
+                required
+            >
+
+            <br><br>
+
+
+            <!-- EMAIL -->
+
+            <label for="registerEmail">
+                Email:
+            </label>
+
+            <input
+                type="email"
+                id="registerEmail"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <br><br>
+
+
+            <!-- PASSWORD -->
+
+            <label for="registerPassword">
+                Password:
+            </label>
+
+            <input
+                type="password"
+                id="registerPassword"
+                name="password"
+                minlength="8"
+                required
+            >
+
+            <br><br>
+
+
+            <!-- AGE -->
+
+            <label for="registerAge">
+                Age:
+            </label>
+
+            <input
+                type="number"
+                id="registerAge"
+                name="age"
+                min="18"
+                max="60"
+                required
+            >
+
+            <br><br>
+
+
+            <!-- DOB -->
+
+            <label for="registerDob">
+                Date of Birth:
+            </label>
+
+            <input
+                type="date"
+                id="registerDob"
+                name="dob"
+            >
+
+            <br><br>
+
+
+            <!-- GENDER -->
+
+            <p>Gender:</p>
+
+            <input
+                type="radio"
+                id="registerMale"
+                name="gender"
+                value="male"
+                required
+            >
+
+            <label for="registerMale">
+                Male
+            </label>
+
+
+            <input
+                type="radio"
+                id="registerFemale"
+                name="gender"
+                value="female"
+            >
+
+            <label for="registerFemale">
+                Female
+            </label>
+
+
+            <input
+                type="radio"
+                id="registerOther"
+                name="gender"
+                value="other"
+            >
+
+            <label for="registerOther">
+                Other
+            </label>
+
+            <br><br>
+
+
+            <!-- SKILLS -->
+
+            <p>Skills:</p>
+
+            <input
+                type="checkbox"
+                id="skillHtml"
+                name="skills"
+                value="html"
+            >
+
+            <label for="skillHtml">HTML</label>
+
+
+            <input
+                type="checkbox"
+                id="skillCss"
+                name="skills"
+                value="css"
+            >
+
+            <label for="skillCss">CSS</label>
+
+
+            <input
+                type="checkbox"
+                id="skillJs"
+                name="skills"
+                value="javascript"
+            >
+
+            <label for="skillJs">JavaScript</label>
+
+            <br><br>
+
+
+            <!-- COURSE -->
+
+            <label for="registerCourse">
+                Course:
+            </label>
+
+            <select
+                id="registerCourse"
+                name="course"
+                required
+            >
+
+                <option value="">
+                    -- Select Course --
+                </option>
+
+                <optgroup label="Frontend">
+
+                    <option value="html">
+                        HTML
+                    </option>
+
+                    <option value="css">
+                        CSS
+                    </option>
+
+                    <option value="javascript">
+                        JavaScript
+                    </option>
+
+                </optgroup>
+
+
+                <optgroup label="Backend">
+
+                    <option value="node">
+                        Node.js
+                    </option>
+
+                    <option value="python">
+                        Python
+                    </option>
+
+                </optgroup>
+
+            </select>
+
+            <br><br>
+
+
+            <!-- MESSAGE -->
+
+            <label for="registerMessage">
+                About Yourself:
+            </label>
+
+            <br>
+
+            <textarea
+                id="registerMessage"
+                name="message"
+                rows="5"
+                cols="40"
+                maxlength="200"
+                placeholder="Tell us about yourself..."
+            ></textarea>
+
+            <br><br>
+
+
+            <!-- RESUME -->
+
+            <label for="registerResume">
+                Upload Resume:
+            </label>
+
+            <input
+                type="file"
+                id="registerResume"
+                name="resume"
+            >
+
+            <br><br>
+
+
+            <!-- BUTTONS -->
+
+            <button type="submit">
+                Register
+            </button>
+
+            <button type="reset">
+                Reset
+            </button>
+
+        </fieldset>
+
+    </form>
+
+
+
+    <!-- =====================================================
+         ACCESSIBILITY BEST PRACTICES
+         ===================================================== -->
+
+    <h2>16. Form Accessibility Best Practices</h2>
+
+    <!--
+
+        1. Har input ke saath label use karo.
+
+        2. label ka "for" input ke "id" ke same hona chahiye.
+
+           label for="email"
+
+           input id="email"
+
+
+        3. Placeholder ko label ka replacement mat banao.
+
+           ❌ Bad:
+           <input placeholder="Enter email">
+
+
+           ✅ Good:
+           <label for="email">Email</label>
+           <input id="email" placeholder="Enter email">
+
+
+        4. Related fields ko fieldset mein group karo.
+
+        5. Buttons ka correct type use karo.
+
+        6. Required fields ke liye required attribute use karo.
+
+        7. Clear labels aur instructions provide karo.
+
+    -->
+
+
+</body>
+</html>

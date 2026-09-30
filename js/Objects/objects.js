@@ -435,3 +435,11 @@
 // for (let key in obj){
 //       console.log(`${key} : ${obj[key]}`);
 // }
+
+let user = {
+    name : "aqdus",
+    class : "javascript",
+    number : 7317810608,
+}
+
+let user2 = {...user}; 
