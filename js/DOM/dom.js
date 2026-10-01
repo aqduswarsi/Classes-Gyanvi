@@ -104,7 +104,7 @@
 // body.style.height = "100vh";
 // console.log(div);
 
-const h1 = document.querySelector("h1");
+// const h1 = document.querySelector("h1");
 
 // // h1.classList.add("hulu");
 // h1.classList.toggle("hulu");

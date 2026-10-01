@@ -37,10 +37,11 @@ section {
 
 .block {
   background: rgb(86, 71, 255);
-  color: white;
-  /* width: 200px; */
+  color: #f9f8f8;
+  width: 200px;
   padding: 15px;
   margin: 10px 0;
+  display: block;
 }
 
 /* INLINE */
@@ -49,6 +50,8 @@ section {
   background: royalblue;
   color: white;
   padding: 10px;
+  display: inline;
+  width: 200px;
 }
 
 /* INLINE BLOCK */
@@ -147,9 +150,9 @@ Z INDEX
 
   background: red;
 
-  left: 20px;
+  left: 20px; 
 
-  z-index: 10;
+  z-index: 5;
 }
 
 .box2 {
@@ -163,7 +166,7 @@ Z INDEX
   left: 90px;
   top: 40px;
 
-  z-index: 15;
+  z-index: 20;
 }
 
 .box3 {
@@ -177,7 +180,7 @@ Z INDEX
   left: 160px;
   top: 80px;
 
-  z-index: 20;
+  z-index: 15;
 }
 
 /* ===========================
@@ -187,9 +190,7 @@ OVERFLOW
 .overflow {
   width: 300px;
   height: 120px;
-
   border: 3px solid black;
-
   overflow: auto;
   padding: 10px;
 }
