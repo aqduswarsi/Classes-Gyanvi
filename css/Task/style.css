@@ -1,0 +1,236 @@
+/* ===== DAY 9: Reset + Selectors ===== */
+
+/* Universal selector: reset + box-sizing (Day 11) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* content-box karke difference dekho */
+}
+
+/* Group selector + Day 12 heading font */
+h1, h2, h3 {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+/* ===== DAY 12: Body typography ===== */
+
+/* @font-face (local font ho to uncomment karo)
+@font-face {
+  font-family: "MyFont";
+  src: url("fonts/MyFont.woff2") format("woff2");
+}
+*/
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgb(60, 36, 21);          /* rgb */
+  background-color: tomato;        /* named */
+}
+
+/* ===== DAY 13: Navbar (ID selector, sticky, z-index) ===== */
+#navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background-color: #3c2415;       /* hex */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);  /* rgba */
+}
+
+.logo {
+  display: block;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  list-style: none;
+}
+
+.nav-links li {
+  display: inline-block;
+  margin-left: 1.5rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ===== HERO (Day 10) ===== */
+#home {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1600");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-content {
+  position: relative;
+  display: block;
+  padding-top: 2rem;
+}
+
+.hero-content h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.highlight {
+  color: tomato;
+}
+
+/* BONUS: Open Now green dot (::before + absolute) */
+.hero-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: limegreen;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+  display: inline-block;
+  padding: 0.8em 2em;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  background: linear-gradient(135deg, tomato, orange);
+  color: #fff;
+  font-family: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* outline vs border: outline layout nahi badalta */
+.btn:focus {
+  outline: 3px solid gold;
+  outline-offset: 4px;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  width: 80%;                      /* % */
+  margin: 0 auto;
+  padding: 4rem 2rem;              /* rem */
+}
+
+.section-alt {
+  width: 100%;
+  background: radial-gradient(circle, #fff3e6, hsl(30, 40%, 80%));  /* hsl */
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Margin collapsing: do siblings ke vertical margins dekho
+   (p ka margin-bottom 30px + next p ka margin-top 20px = 30px, 50px nahi) */
+
+/* ===== ABOUT ===== */
+.about-grid img {
+  width: 100%;
+}
+
+/* ===== CARDS (Day 11 + 13) ===== */
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  width: 280px;
+  padding: 2rem 1.5rem;
+  margin: 15px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover {
+  position: relative;
+  top: -5px;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;                     /* navbar se neeche */
+  padding: 0.3em 0.8em;
+  border-radius: 20px;
+  background-color: hsla(120, 60%, 40%, 0.9);  /* hsla */
+  color: #fff;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.price {
+  font-weight: 600;
+  color: tomato;
+}
+
+/* ===== HOURS (Day 12 ellipsis) ===== */
+.long-text {
+  max-width: 500px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== CONTACT FORM (Day 11) ===== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  padding: 2rem;
+  text-align: center;
+  background-color: #3c2415;
+  color: #fff;
+}
+
+/* display: none demo: uncomment karo, footer gayab
+footer { display: none; }
+*/
+
+/* ===== BACK TO TOP (fixed) ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 90;
+  padding: 10px 14px;
+  border-radius: 50%;
+  background-color: tomato;
+  color: #fff;
+  text-decoration: none;
+}
